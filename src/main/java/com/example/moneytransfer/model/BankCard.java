@@ -15,25 +15,26 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "t_bank_card")
 public class BankCard {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column
-	private int balance;
+	@Column(nullable = false)
+	private Long balance;
 
-	@Column
+	@Column(nullable = false)
 	private String number;
 
-	@Column(name = "valid_till")
+	@Column(name = "valid_till", nullable = false)
 	private String validTill;
 
-	@Column(name = "cvv")
+	@Column(name = "cvv", nullable = false)
 	private String CVV;
 
-	@Column
+	@Column(nullable = false)
 	private String name;
 
-	@Column
+	@Column(nullable = false)
 	private String surname;
 }

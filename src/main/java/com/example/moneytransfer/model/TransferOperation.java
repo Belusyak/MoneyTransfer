@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,24 +23,25 @@ public class TransferOperation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column
-	LocalDateTime localDateTime;
+	@Column(nullable = false)
+	private LocalDateTime localDateTime = LocalDateTime.now();
 
-	@Column
-	String cardFromNumber;
+	@Column(nullable = false)
+	private String cardFromNumber;
 
-	@Column
-	String cardToNumber;
+	@Column(nullable = false)
+	private String cardToNumber;
 
-	@Column
-	Long amount;
+	@Column(nullable = false)
+	private Long amount;
 
-	@Column
-	String currency;
+	@Column(nullable = false)
+	private String currency;
 
-	@Column
-	Long commission;
+	@Column(nullable = false)
+	private Long commission;
 
-	@Column
-	String result;
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
+	private CodeResult result;
 }
